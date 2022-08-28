@@ -1,0 +1,55 @@
+CREATE DATABASE urna;
+
+USE urna;
+
+CREATE TABLE tb_candidato(
+    cod_candidato int PRIMARY KEY AUTO_INCREMENT,
+    nome_candidato varchar(200),
+    senha varchar(200),
+    rm char(5),
+    usuario_administrador int(1) /* 1 == user || 0 == admin */
+);
+
+CREATE TABLE tb_chapa(
+    cod_chapa int PRIMARY KEY AUTO_INCREMENT,
+    nome_chapa varchar(200),
+    periodo_chapa varchar(200),
+    descricao varchar(200),
+    foto longblob(4294967295)
+);
+
+CREATE TABLE tb_mesa(
+    cod_mesa int PRIMARY KEY AUTO_INCREMENT,
+    nome_mesario varchar(200),
+    nome_president varchar(200),
+    mesa_chapa int,
+    CONSTRAINT fk_mesa_chapa FOREIGN KEY (mesa_chapa) REFERENCES tb_chapa(cod_chapa)
+);
+
+CREATE TABLE tb_voto(
+    cod_voto int PRIMARY KEY AUTO_INCREMENT,
+    voto_candidato int not null,
+    voto_chapa int not null,
+    CONSTRAINT fk_voto_candidato FOREIGN KEY (voto_candidato) REFERENCES tb_candidato(cod_candidato),
+    CONSTRAINT fk_voto_chapa FOREIGN KEY (voto_chapa) REFERENCES tb_chapa(cod_chapa)
+);
+
+insert into tb_voto(
+
+	tb_candidato,
+	tb_chapa
+
+) values (
+
+	1,
+	2
+
+);
+
+SHOW TABLES;
+
+
+select tb_voto.cod_voto, tb_candidato.nome_candidato, tb_chapa.nome_chapa
+from tb_voto
+inner join tb_candidato on tb_candidato.cod_candidato = tb_voto.voto_candidato
+inner join tb_chapa on tb_chapa.cod_chapa = tb_voto.cod_voto
