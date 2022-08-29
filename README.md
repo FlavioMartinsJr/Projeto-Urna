@@ -4,7 +4,7 @@
 
 ## :bell: Informações:
 
-Projeto elaboraddo em Curso de Desenvolvimento de Sistema com intuito realizar uma eleição de gremio nesse projeto foi feito tambem a integração com banco de dados ultilizando MySql, a parte do front end foi feita apenas com o windows forms sem a ultilização de framework, o que vai ta disponivel;
+Projeto elaborado no Curso técnico de Desenvolvimento de Sistema com intuito realizar uma eleição de gremio nesse projeto foi feito tambem a integração com banco de dados ultilizando MySql, a parte do front end foi feita apenas com o windows forms sem a ultilização de framework, o que vai ta disponivel;
 
 - Solução do projeto com Classes;
 - Script do Banco De Dados;
